@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+import axios from 'axios';
+import  React from 'react'
 import './App.css';
+import CardItem from './components/cards/card';
+
+
 
 function App() {
+
+  const [data,setData] = React.useState([])
+  React.useEffect(()=>{
+    axios.get('https://electronic-ecommerce.herokuapp.com/api/v1/product').then(res=>setData(res.data.data.product))
+  },[])
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // eslint-disable-next-line
+
+
+          <CardItem data={data} />
+        
+  
+    
+    
   );
 }
 
