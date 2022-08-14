@@ -2,6 +2,7 @@ import axios from 'axios';
 import  React from 'react'
 import './App.css';
 import CardItem from './components/cards/card';
+import Navbar from './components/navbar/navbar';
 
 
 
@@ -13,12 +14,13 @@ function App() {
   },[])
 
 
-
+        
   return (
-    // eslint-disable-next-line
 
-
-          <CardItem data={data} />
+          <>
+      <Navbar />
+      <CardItem data={data} />
+      </>
         
   
     
